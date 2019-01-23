@@ -1,0 +1,57 @@
+/* pages/list/list.wxss */
+.list{
+  /* height:300rpx; */
+  background-color: #fff;
+}
+.list-item{
+  display: flex;
+  border-bottom:1px solid #ddd;
+  padding:20rpx;
+}
+.list-item image{
+  flex:1;
+  height:180rpx;
+  margin-right:20rpx;
+}
+.list .item-desc{
+  display: flex;
+  flex:3;
+  position: relative;
+  flex-direction: column;
+  font-size:28rpx;
+  line-height: 40rpx;
+}
+.item-desc text{
+  color:#678;
+}
+.item-desc .title{
+  font-size:32rpx;
+  color:#333;
+}
+.item-desc .score{
+  position: absolute;
+  top:0;
+  right:0;
+  width:60rpx;
+  height:40rpx;
+  background-color: red;
+  color:#fff;
+  border-radius: 20rpx;
+  text-align: center;
+}
+.loading-tips{
+  font-size: 34rpx;
+  text-align:center;
+  color:#678;
+  line-height: 40rpx;
+}
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}

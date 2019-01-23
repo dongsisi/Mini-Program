@@ -1,0 +1,54 @@
+<swiper class="slides" indicator-dots="2" indicator-color="#bcc0c9" indicator-active-color="#3a4861">
+  <swiper-item wx:for="{{tools.sliceSwiper(detail.images)}}" wx:key="*this">
+    <image src="{{item}}" mode="aspectFill"/>
+  </swiper-item>
+</swiper>
+
+<view class="heading">
+  <text class="name">{{detail.name}}</text>
+  <text class="phone">电话：{{detail.phone}}</text>
+  <text class="address">地址：{{detail.address}}</text>
+  <text class="hours">营业时间：{{detail.businessHours}}</text>
+  <view class="score">{{detail.score}}分</view>
+</view>
+
+<view class="introduction" wx:if="{{detail.introduction}}">
+  <text>{{detail.introduction}}</text>
+</view>
+
+<view class="comments">
+  <view class="item" wx:for="{{detail.comments}}" wx:key="*this">
+    <text class="name">{{item.name}}</text>
+    <text class="date">{{item.date}}</text>
+    <text class="rating">{{item.rating}}</text>
+    <text class="content">{{item.content}}</text>
+    <view class="images">
+      <image 
+      src="{{ tools.replaceWH(url) }}" 
+      wx:for="{{ item.images }}" 
+      wx:for-item="url" 
+      wx:key="*this" 
+      bindtap="previewImg" 
+      data-current="{{ url }}" 
+      data-urls="{{ item.images }}"/>
+    </view>
+  </view>
+</view>
+<wxs module="tools">
+  function replaceWH(src) {
+    return src.replace('w.h', '100.100')
+  }
+
+  function sliceSwiper(images) {
+    // console.log('路径：', images)
+
+    // 没有值，就返回一个空数组，这样处理后，没有数据也不会报错
+    if (!images) {
+      return []
+    } else {
+      return images.slice(0, 8)
+    }
+  }
+  module.exports.replaceWH = replaceWH
+  module.exports.sliceSwiper = sliceSwiper
+</wxs>
